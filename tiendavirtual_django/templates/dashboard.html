@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero"><h1>Bienvenido a NovaTech</h1><p>Control inteligente para tu negocio tecnológico.</p></section>
+<div class="cards"><div class="card">Productos<div class="num">{{ total_productos }}</div></div><div class="card">Categorías<div class="num">{{ total_categorias }}</div></div><div class="card">Clientes<div class="num">{{ total_clientes }}</div></div><div class="card">Marcas<div class="num">{{ total_marcas }}</div></div></div>
+<div class="card"><h2>Accesos rápidos</h2><a class="btn" href="{% url 'producto_crear' %}">Nuevo producto</a> <a class="btn" href="{% url 'cliente_crear' %}">Nuevo cliente</a></div>{% endblock %}

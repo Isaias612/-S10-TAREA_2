@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block content %}<h1>Productos</h1><a class="btn" href="{% url 'producto_crear' %}">Nuevo producto</a>
+<form method="get"><input name="q" value="{{ q }}" placeholder="Buscar producto o código"><button class="btn">Buscar</button></form>
+<div class="tablewrap"><table><tr><th>Nombre</th><th>Código</th><th>Marca</th><th>Categorías</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr>
+{% for p in pagina %}<tr><td>{{ p.nombre }}</td><td>{{ p.codigo }}</td><td>{{ p.marca }}</td><td>{% for c in p.categorias.all %}{{ c.nombre }} {% endfor %}</td><td>${{ p.precio }}</td><td>{{ p.stock }}</td><td><a href="{% url 'producto_editar' p.pk %}">Editar</a> | <a href="{% url 'producto_eliminar' p.pk %}">Eliminar</a></td></tr>{% empty %}<tr><td colspan="7">Sin productos.</td></tr>{% endfor %}</table></div>{% endblock %}

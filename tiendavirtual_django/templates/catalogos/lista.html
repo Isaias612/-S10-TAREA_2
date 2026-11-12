@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}
+<h1>{{ titulo }}</h1>
+{% if titulo == "Categorías" %}<a class="btn" href="{% url 'categoria_crear' %}">Nueva categoría</a>{% else %}<a class="btn" href="{% url 'marca_crear' %}">Nueva marca</a>{% endif %}
+<form method="get"><input name="q" value="{{ q }}" placeholder="Buscar..."><button class="btn">Buscar</button></form>
+<div class="tablewrap"><table><tr><th>Nombre</th><th>Descripción / país</th><th>Estado</th><th>Acciones</th></tr>
+{% for x in registros %}<tr><td>{{ x.nombre }}</td><td>{{ x.descripcion|default:x.pais_origen|default:"—" }}</td><td>{% if x.activa %}Activa{% else %}Inactiva{% endif %}</td><td>
+{% if titulo == "Categorías" %}<a href="{% url 'categoria_editar' x.pk %}">Editar</a> | <a href="{% url 'categoria_eliminar' x.pk %}">Eliminar</a>{% else %}<a href="{% url 'marca_editar' x.pk %}">Editar</a> | <a href="{% url 'marca_eliminar' x.pk %}">Eliminar</a>{% endif %}
+</td></tr>{% empty %}<tr><td colspan="4">Sin registros.</td></tr>{% endfor %}</table></div>{% endblock %}

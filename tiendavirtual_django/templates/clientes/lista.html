@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block content %}<h1>Clientes</h1><a class="btn" href="{% url 'cliente_crear' %}">Nuevo cliente</a>
+<form method="get"><input name="q" value="{{ q }}" placeholder="Buscar por nombre, cédula o correo"><button class="btn">Buscar</button></form>
+<div class="tablewrap"><table><tr><th>Cédula</th><th>Cliente</th><th>Correo</th><th>Teléfono</th><th>Acciones</th></tr>
+{% for c in pagina %}<tr><td>{{ c.cedula }}</td><td>{{ c.apellidos }} {{ c.nombres }}</td><td>{{ c.email }}</td><td>{{ c.telefono }}</td><td><a href="{% url 'cliente_editar' c.pk %}">Editar</a> | <a href="{% url 'cliente_eliminar' c.pk %}">Eliminar</a></td></tr>{% empty %}<tr><td colspan="5">Sin clientes.</td></tr>{% endfor %}</table></div>{% endblock %}

@@ -1,0 +1,25 @@
+from django.urls import path
+from . import views
+urlpatterns = [
+    path("", views.dashboard, name="dashboard"),
+    path("login/", views.login_view, name="login"),
+    path("registro/", views.registro, name="registro"),
+    path("salir/", views.salir, name="salir"),
+    path("categorias/", views.categoria_lista, name="categoria_lista"),
+    path("categorias/nueva/", views.categoria_crear, name="categoria_crear"),
+    path("categorias/<int:pk>/editar/", views.categoria_editar, name="categoria_editar"),
+    path("categorias/<int:pk>/eliminar/", views.categoria_eliminar, name="categoria_eliminar"),
+    path("marcas/", views.marca_lista, name="marca_lista"),
+    path("marcas/nueva/", views.marca_crear, name="marca_crear"),
+    path("marcas/<int:pk>/editar/", views.marca_editar, name="marca_editar"),
+    path("marcas/<int:pk>/eliminar/", views.marca_eliminar, name="marca_eliminar"),
+    path("productos/", views.producto_lista, name="producto_lista"),
+    path("productos/nuevo/", views.producto_crear, name="producto_crear"),
+    path("productos/<int:pk>/editar/", views.producto_editar, name="producto_editar"),
+    path("productos/<int:pk>/eliminar/", views.producto_eliminar, name="producto_eliminar"),
+    path("clientes/", views.cliente_lista, name="cliente_lista"),
+    path("clientes/nuevo/", views.cliente_crear, name="cliente_crear"),
+    path("clientes/<int:pk>/editar/", views.cliente_editar, name="cliente_editar"),
+    path("clientes/<int:pk>/eliminar/", views.cliente_eliminar, name="cliente_eliminar"),
+    path("mi-perfil/", views.mi_perfil, name="mi_perfil"),
+]
